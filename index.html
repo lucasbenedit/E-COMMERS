@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Elegante - Sua Marca de Moda Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegação */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e83e8c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #e83e8c;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e83e8c;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #e83e8c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        /* Seção Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e83e8c;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d2337d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Seção Sobre */
+        .about {
+            padding: 5rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 2rem;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        /* Seção Produtos */
+        .products {
+            padding: 5rem 10%;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-info p {
+            color: #e83e8c;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .view-more {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .add-to-cart {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #d2337d;
+        }
+
+        /* Modal de Produto */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .modal-product-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .modal-product-img img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal-product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .modal-product-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal-product-info .price {
+            font-size: 1.5rem;
+            color: #e83e8c;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .modal-product-info .description {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .size-selector {
+            margin-bottom: 1.5rem;
+        }
+
+        .size-selector h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .sizes {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .size {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size:hover, .size.selected {
+            background-color: #e83e8c;
+            color: white;
+            border-color: #e83e8c;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-selector h3 {
+            margin-right: 1rem;
+            color: #333;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            margin: 0 0.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .shipping-calculator {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .shipping-calculator h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .cep-input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+        }
+
+        .calculate-shipping {
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .shipping-result {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .modal-add-to-cart {
+            width: 100%;
+            padding: 1rem;
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-add-to-cart:hover {
+            background-color: #d2337d;
+        }
+
+        /* Carrinho de Compras */
+        .cart {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s;
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .close-cart {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .cart-item-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #e83e8c;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background-color: #d2337d;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 10%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                padding: 3rem 5%;
+            }
+
+            .products {
+                padding: 3rem 5%;
+            }
+
+            .cart {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <a href="#" class="logo">Moda<span>Elegante</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#products">Produtos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <section class="hero" id="home">
+        <h1>Coleção Primavera/Verão 2023</h1>
+        <p>Descubra as peças exclusivas que vão transformar seu guarda-roupa nesta estação</p>
+        <a href="#products" class="btn">Compre Agora</a>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sobre Nós">
+        </div>
+        <div class="about-content">
+            <h2>Sobre Nossa Marca</h2>
+            <p>Fundada em 2010, a Moda Elegante nasceu da paixão por criar peças que combinam conforto, estilo e qualidade. Nossa missão é oferecer roupas que empoderam e refletem a personalidade única de cada cliente.</p>
+            <p>Cada peça é cuidadosamente desenhada por nossa equipe de estilistas e confeccionada com materiais sustentáveis e de alta qualidade, garantindo durabilidade e conforto.</p>
+            <a href="#products" class="btn">Conheça Nossos Produtos</a>
+        </div>
+    </section>
+
+    <!-- Seção Produtos -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Nossos Produtos</h2>
+            <p>Descubra nossa coleção exclusiva de roupas e acessórios que combinam com seu estilo único</p>
+        </div>
+        <div class="product-grid">
+            <!-- Produto 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Vestido Floral">
+                </div>
+                <div class="product-info">
+                    <h3>Vestido Floral</h3>
+                    <p>R$ 189,90</p>
+                    <div class="product-actions">
+                        <button class="view-more" data-id="1">Ver mais</button>
+                        <button class="add-to-cart" data-id="1">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produto 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blazer Moderno">
+                </div>
+                <div class="product-info">
+                    <h3>Blazer Moderno</h3>
+                    <p>R$ 259,90</p>
+                    <div class="product-actions">
+                        <button class="view-more" data-id="2">Ver mais</button>
+                        <button class="add-to-cart" data-id="2">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produto 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Camiseta Básica">
+                </div>
+                <div class="product-info">
+                    <h3>Camiseta Básica</h3>
+                    <p>R$ 79,90</p>
+                    <div class="product-actions">
+                        <button class="view-more" data-id="3">Ver mais</button>
+                        <button class="add-to-cart" data-id="3">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produto 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1595341595379-cf1634c5d0c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Calça Jeans Skinny">
+                </div>
+                <div class="product-info">
+                    <h3>Calça Jeans Skinny</h3>
+                    <p>R$ 149,90</p>
+                    <div class="product-actions">
+                        <button class="view-more" data-id="4">Ver mais</button>
+                        <button class="add-to-cart" data-id="4">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Produto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product">
+                <div class="modal-product-img">
+                    <img src="" alt="" id="modalProductImg">
+                </div>
+                <div class="modal-product-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <p class="price" id="modalProductPrice"></p>
+                    <p class="description" id="modalProductDescription"></p>
+                    
+                    <div class="size-selector">
+                        <h3>Tamanho</h3>
+                        <div class="sizes">
+                            <div class="size selected">P</div>
+                            <div class="size">M</div>
+                            <div class="size">G</div>
+                            <div class="size">GG</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <h3>Quantidade</h3>
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    
+                    <div class="shipping-calculator">
+                        <h3>Calcular Frete</h3>
+                        <input type="text" class="cep-input" placeholder="Digite seu CEP">
+                        <button class="calculate-shipping">Calcular</button>
+                        <div class="shipping-result"></div>
+                    </div>
+                    
+                    <button class="modal-add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho de Compras -->
+    <div class="cart">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items">
+            <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Moda Elegante - Transformando estilos desde 2010.</p>
+                <p>Comprometidos com qualidade, sustentabilidade e design inovador.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua da Moda, 123 - São Paulo, SP</p>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@modaelegante.com.br</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <a href="#">Política de Troca</a>
+                <a href="#">Formas de Pagamento</a>
+                <a href="#">Dúvidas Frequentes</a>
+                <a href="#">Rastrear Pedido</a>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Moda Elegante. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Dados dos produtos
+        const products = [
+            {
+                id: 1,
+                title: "Vestido Floral",
+                price: 189.90,
+                image: "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                description: "Vestido midi floral com decote em V e mangas bufantes. Confeccionado em viscose de alta qualidade para maior conforto e durabilidade. Perfeito para eventos diurnos e encontros casuais."
+            },
+            {
+                id: 2,
+                title: "Blazer Moderno",
+                price: 259.90,
+                image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                description: "Blazer slim fit em tecido resistente e com toque macio. Possui recortes modernos e bolsos funcionais. Ideal para compor looks sofisticados para o escritório ou eventos noturnos."
+            },
+            {
+                id: 3,
+                title: "Camiseta Básica",
+                price: 79.90,
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                description: "Camiseta básica em algodão penteado 100% algodão. Corte reto e decote redondo. Disponível em diversas cores. Peça essencial para o dia a dia que combina com tudo."
+            },
+            {
+                id: 4,
+                title: "Calça Jeans Skinny",
+                price: 149.90,
+                image: "https://images.unsplash.com/photo-1595341595379-cf1634c5d0c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                description: "Calça jeans skinny com elastano para melhor ajuste ao corpo. Cintura média e cós com detalhes em botões de metal. Versátil para looks casuais e mais arrumados."
+            }
+        ];
+        
+        // Carrinho de compras
+        let cart = [];
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartCount = document.querySelector('.cart-count');
+        const cartElement = document.querySelector('.cart');
+        const closeCartBtn = document.querySelector('.close-cart');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const totalPriceElement = document.querySelector('.total-price');
+
+        // Modal de produto
+        const modal = document.getElementById('productModal');
+        const modalProductImg = document.getElementById('modalProductImg');
+        const modalProductTitle = document.getElementById('modalProductTitle');
+        const modalProductPrice = document.getElementById('modalProductPrice');
+        const modalProductDescription = document.getElementById('modalProductDescription');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalAddToCartBtn = document.querySelector('.modal-add-to-cart');
+        const quantityInput = document.querySelector('.quantity-input');
+        const minusBtn = document.querySelector('.minus');
+        const plusBtn = document.querySelector('.plus');
+        const sizeOptions = document.querySelectorAll('.size');
+        const cepInput = document.querySelector('.cep-input');
+        const calculateShippingBtn = document.querySelector('.calculate-shipping');
+        const shippingResult = document.querySelector('.shipping-result');
+
+        // Variáveis para controle do produto atual no modal
+        let currentProduct = null;
+        let selectedSize = 'P';
+        let quantity = 1;
+
+        // Abrir/fechar carrinho
+        cartIcon.addEventListener('click', () => {
+            cartElement.classList.add('active');
+        });
+
+        closeCartBtn.addEventListener('click', () => {
+            cartElement.classList.remove('active');
+        });
+
+        // Abrir modal de produto
+        document.querySelectorAll('.view-more').forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = parseInt(button.getAttribute('data-id'));
+                currentProduct = products.find(p => p.id === productId);
+                
+                if (currentProduct) {
+                    modalProductImg.src = currentProduct.image;
+                    modalProductImg.alt = currentProduct.title;
+                    modalProductTitle.textContent = currentProduct.title;
+                    modalProductPrice.textContent = `R$ ${currentProduct.price.toFixed(2).replace('.', ',')}`;
+                    modalProductDescription.textContent = currentProduct.description;
+                    
+                    // Resetar valores do modal
+                    quantityInput.value = 1;
+                    quantity = 1;
+                    selectedSize = 'P';
+                    sizeOptions.forEach(size => {
+                        size.classList.remove('selected');
+                        if (size.textContent === 'P') {
+                            size.classList.add('selected');
+                        }
+                    });
+                    
+                    shippingResult.textContent = '';
+                    cepInput.value = '';
+                    
+                    modal.style.display = 'block';
+                }
+            });
+        });
+
+        // Fechar modal
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Controle de quantidade
+        minusBtn.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                quantityInput.value = quantity;
+            }
+        });
+
+        plusBtn.addEventListener('click', () => {
+            quantity++;
+            quantityInput.value = quantity;
+        });
+
+        quantityInput.addEventListener('change', () => {
+            quantity = parseInt(quantityInput.value) || 1;
+            if (quantity < 1) {
+                quantity = 1;
+                quantityInput.value = 1;
+            }
+        });
+
+        // Seleção de tamanho
+        sizeOptions.forEach(size => {
+            size.addEventListener('click', () => {
+                sizeOptions.forEach(s => s.classList.remove('selected'));
+                size.classList.add('selected');
+                selectedSize = size.textContent;
+            });
+        });
+
+        // Cálculo de frete (simulado)
+        calculateShippingBtn.addEventListener('click', () => {
+            const cep = cepInput.value.replace(/\D/g, '');
+            
+            if (cep.length !== 8) {
+                shippingResult.textContent = 'CEP inválido. Digite os 8 dígitos.';
+                shippingResult.style.color = 'red';
+                return;
+            }
+            
+            // Simulação de chamada à API dos Correios
+            shippingResult.textContent = 'Calculando frete...';
+            shippingResult.style.color = '#666';
+            
+            setTimeout(() => {
+                // Simulação de resposta da API
+                const randomDays = Math.floor(Math.random() * 5) + 3; // Entre 3 e 7 dias
+                const shippingPrice = (Math.random() * 20 + 10).toFixed(2); // Entre R$ 10 e R$ 30
+                
+                shippingResult.innerHTML = `
+                    <p>Frete: R$ ${shippingPrice.replace('.', ',')}</p>
+                    <p>Prazo de entrega: ${randomDays} dias úteis</p>
+                `;
+                shippingResult.style.color = 'green';
+            }, 1500);
+        });
+
+        // Adicionar ao carrinho pelo modal
+        modalAddToCartBtn.addEventListener('click', () => {
+            if (currentProduct) {
+                addToCart(currentProduct.id, quantity, selectedSize);
+                modal.style.display = 'none';
+                cartElement.classList.add('active');
+            }
+        });
+
+        // Adicionar ao carrinho pelos botões na lista de produtos
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = parseInt(button.getAttribute('data-id'));
+                addToCart(productId, 1, 'P');
+                cartElement.classList.add('active');
+            });
+        });
+
+        // Função para adicionar item ao carrinho
+        function addToCart(productId, quantity, size) {
+            const product = products.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            // Verificar se o item já está no carrinho
+            const existingItem = cart.find(item => 
+                item.id === product.id && item.size === size
+            );
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity,
+                    size
+                });
+            }
+            
+            updateCart();
+        }
+
+        // Função para atualizar o carrinho
+        function updateCart() {
+            // Atualizar contador
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Atualizar lista de itens
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio</p>';
+                totalPriceElement.textContent = 'R$ 0,00';
+                return;
+            }
+            
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>${item.title}</h3>
+                        <p>Tamanho: ${item.size}</p>
+                        <p>R$ ${item.price.toFixed(2).replace('.', ',')} x ${item.quantity}</p>
+                        <p>Subtotal: R$ ${itemTotal.toFixed(2).replace('.', ',')}</p>
+                        <button class="remove-item" data-id="${item.id}" data-size="${item.size}">Remover</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            // Atualizar preço total
+            totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+            
+            // Adicionar eventos aos botões de remover
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = parseInt(button.getAttribute('data-id'));
+                    const size = button.getAttribute('data-size');
+                    removeFromCart(productId, size);
+                });
+            });
+        }
+
+        // Função para remover item do carrinho
+        function removeFromCart(productId, size) {
+            cart = cart.filter(item => !(item.id === productId && item.size === size));
+            updateCart();
+        }
+
+        // Finalizar compra
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            alert('Compra finalizada com sucesso! Obrigado por comprar conosco.');
+            cart = [];
+            updateCart();
+            cartElement.classList.remove('active');
+        });
+
+        // Inicializar carrinho
+        updateCart();
+    </script>
+</body>
+</html>
